@@ -1,0 +1,120 @@
+{
+  "userInfo": {
+    "avatar": "",
+    "avatarIcon": "fas fa-user",
+    "name": "NN小手机用户",
+    "status": "在线",
+    "gender": "未设置",
+    "region": "未设置",
+    "mask": "",
+    "momentsCover": ""
+  },
+  "chatApiSettings": {
+    "baseUrl": "",
+    "apiKey": "",
+    "model": "",
+    "temperature": 0.7
+  },
+  "apiPresets": [],
+  "characters": [],
+  "memorySettings": {
+    "shortTermLimit": 20,
+    "ltmInterval": 10,
+    "ltmMax": 5,
+    "ltmEnabled": true,
+    "ltmApi": {
+      "baseUrl": "",
+      "apiKey": "",
+      "model": ""
+    }
+  },
+  "worldBooks": [],
+  "emoticonList": [],
+  "visionApiSettings": {
+    "baseUrl": "",
+    "apiKey": "",
+    "model": "",
+    "prompt": "详细描述这张图片的内容。输出格式：[这是一张图片，图片内容为……]。"
+  },
+  "voiceApiSettings": {
+    "groupId": "",
+    "apiKey": "",
+    "userVoiceId": ""
+  },
+  "socialApiSettings": {
+    "baseUrl": "",
+    "apiKey": "",
+    "model": "",
+    "temperature": 1.2
+  },
+  "socialMoments": [],
+  "momentsSettings": {
+    "postableCharacterIds": [],
+    "memorySyncEnabled": true,
+    "realisticTimeEnabled": false,
+    "memoryLimit": 10,
+    "hasUnread": false
+  },
+  "groupOrder": [],
+  "forumBoards": [],
+  "walletData": {
+    "balance": 500,
+    "transactions": []
+  },
+  "otherApiSettings": {
+    "baseUrl": "",
+    "apiKey": "",
+    "model": "",
+    "temperature": 0.7
+  },
+  "favoriteMessages": [],
+  "periodData": {
+    "cycleLength": 28,
+    "duration": 6,
+    "syncCharIds": [],
+    "activeStart": null,
+    "history": [],
+    "migrated": false
+  },
+  "styleSettings": {
+    "globalBg": "",
+    "globalCss": "",
+    "bubbleCss": "",
+    "zoom": 100,
+    "fontUrl": ""
+  },
+  "cloudSettings": {
+    "url": "",
+    "username": "",
+    "password": ""
+  },
+  "userMasks": [],
+  "rcpLastInputData": null,
+  "stylePresets": [
+    {
+      "name": "暗黑模式",
+      "data": {
+        "globalBg": "",
+        "globalCss": "\n/* ============================================================ */\n/* 【全局暗黑基础 - 使用伪元素避开聊天背景】 */\n/* ============================================================ */\nbody, html { background-color: #111111 !important; color: #e0e0e0; }\n\n/* 给页面容器设置相对定位，但不锁死聊天页 */\n.page:not(#chat-detail-page) {\n    position: relative;\n    background-color: transparent !important; \n    z-index: 1; \n}\n\n/* 使用 ::before 创建深色背景层，完美避开聊天页 */\n.page:not(#chat-detail-page)::before {\n    content: '';\n    position: fixed; \n    top: 0;\n    left: 0;\n    width: 100vw; \n    height: 100vh; \n    background-color: #111111 !important; /* 暗黑底色 */\n    z-index: -1; \n    will-change: transform; \n}\n\n/* 确保外层容器也是透明的，让背景透出来 */\n.content-area, .page-content {\n    background-color: transparent !important;\n    color: #e0e0e0;\n}\n\n/* 聊天页特别处理，保留透明度防止遮挡壁纸 (强制穿透级别) */\n#chat-detail-page, \n#chat-detail-page .page-content,\n#chat-message-container { \n    background: transparent !important; \n    background-color: transparent !important; \n}\n\n/* ==================================== */\n/* 【核心修复：文字颜色大清洗】 */\n/* ==================================== */\n\n/* 1. 基础标题、各种名字强制变白 */\nh1, h2, h3, h4, h5, h6, \n.form-label, .api-setting-label, .menu-btn-text, .setting-btn-text, \n.user-name, .chat-name, .top-bar-title, .top-bar-main-title,\n.d-char-name, .wb-card-title, .group-title, \n.file-name-text, .gift-list-name, .forum-at-name, .pp-name, \n.delivery-title, .shop-card-title, .search-result-name { \n    color: #e0e0e0 !important; \n}\n\n/* ★ 论坛标题强制纯白护航 */\n.fpc-title, .fd-title { color: #ffffff !important; font-weight: bold !important; }\n\n/* 2. 状态、时间、副标题强制变亮灰 (防止看不清) */\n.user-status, .chat-last-msg, .chat-time, \n.d-char-desc, .fd-author-time, .fpc-time, .fri-time, \n.gift-list-desc, .shop-card-desc, .file-size-text, .pp-mask { \n    color: #aaaaaa !important; \n}\n\n/* 3. 论坛与朋友圈的微信蓝昵称提亮 (防止原本的深蓝色融入黑底) */\n.post-author, .moment-user-blue, .fri-name, .moment-likes, .moment-likes i { \n    color: #8299c2 !important; \n}\n\n/* 4. 核弹级反转：只要代码里内联写了深色字的，全部强行漂白！ */\n[style*=\"color: #333\"],[style*=\"color:#333\"],[style*=\"color: #444\"],[style*=\"color:#444\"],[style*=\"color: #555\"],[style*=\"color:#555\"],[style*=\"color: rgb(51, 51, 51)\"],[style*=\"color: rgb(68, 68, 68)\"],[style*=\"color: rgb(85, 85, 85)\"] {\n    color: #e0e0e0 !important;\n}\n\n.top-bar, .bottom-nav { background-color: #191919 !important; border-color: #2a2a2a !important; }\n.nav-item { color: #888; }\n\n/* ==================================== */\n/* 修复：各种卡片、按钮、头像容器彻底变黑 */\n/* ==================================== */\n.chat-card, .user-info-card, .menu-btn, .setting-btn, .user-info-edit-btn,\n.form-section.character-info-card, .switch-container,\n.api-preset-bar, .gift-list-item, .fav-card, \n.search-bar-container, .search-result-item, .wb-card, .emoticon-card,\n.moment-virtual-card, .diary-char-card, .diary-box, .transaction-item,\n.shopping-tabs, .shopping-control-panel, .forum-post-card, .forum-detail-main, .forum-reply-item,\n.character-avatar-uploader, .avatar-preview, .user-avatar, .d-char-avatar, .fav-avatar, .search-result-avatar, .msg-avatar {\n    background-color: #191919 !important;\n    border-color: #2a2a2a !important;\n    color: #e0e0e0 !important;\n}\n\n/* ==================================== */\n/* 强制核弹级拦截：所有内联白色的元素背景 (兼容 rgb 格式) */\n/* ==================================== */\n[style*=\"background: #fff\"],[style*=\"background:#fff\"],[style*=\"background-color: #fff\"],[style*=\"background-color:#fff\"],\n[style*=\"background: #fdfdfd\"],[style*=\"background: #f9f9f9\"],[style*=\"background-color: #f8f8f8\"],[style*=\"background: #f8f8f8\"],\n[style*=\"background-color: #f7f7f7\"],[style*=\"background: #f7f7f7\"],[style*=\"background-color: #f5f5f5\"],[style*=\"background: #f5f5f5\"],[style*=\"rgb(255, 255, 255)\"],[style*=\"rgb(249, 249, 249)\"],[style*=\"rgb(253, 253, 253)\"], [style*=\"rgb(245, 245, 245)\"] {\n    background-color: #191919 !important;\n    border-color: #333 !important;\n    color: #e0e0e0 !important;\n}\n\n/* ==================================== */\n/* 表单、容器与按钮暗色化 */\n/* ==================================== */\ninput, textarea, select, .form-input, .form-textarea, .forum-bar-input, .form-select, .name-input, .mask-input, .api-setting-input, .center-modal-input, #setting-character-bg-url, .code-input, .chat-bar-input { \n    background-color: #2c2c2c !important; border-color: #444 !important; color: #fff !important; \n}\n\n/* 覆盖特定的卡片、开关、各种设置项 */\n.scroll-select-box, \n.ltm-item textarea,\n.ltm-counter,\n.ltm-action-btn,\n.gift-status-input {\n    background-color: #191919 !important; \n    border-color: #333 !important; \n    color: #e0e0e0 !important; \n}\n\n/* ★ 修复下拉框内的分组标题(专门拦截 rgb 格式) */\n.scroll-select-box > div {\n    background-color: #222222 !important; \n    color: #aaaaaa !important; \n    border-top: 1px solid #333 !important;\n}\n\n/* 多选框及列表 */\n.checkbox-item { border-bottom-color: #2a2a2a !important; }\n.checkbox-item span { color: #e0e0e0 !important; } /* 世界书/角色复选框文字白化 */\n.custom-check-circle { background-color: #2c2c2c !important; border-color: #555 !important; }\n\n/* 按钮专属修正 */\n.batch-btn, .add-event-btn, .shop-buy-btn { background-color: #2c2c2c !important; color: #e0e0e0 !important; border-color: #444 !important; }\n.batch-btn.batch-delete { color: #ff3b30 !important; }\n\n/* 针对带有内联蓝边的导出角色按钮，单独提权黑化 */\n#setting-export-character-btn { background-color: #1a2a3a !important; border-color: #1565c0 !important; color: #409eff !important; }\n\n/* 聊天框基础样式 */\n.chat-input-bar { background-color: #191919 !important; border-top: 1px solid #2a2a2a !important; }\n.chat-msg-row.left .msg-bubble { background-color: #2c2c2c !important; border: 1px solid #333 !important; color: #e0e0e0 !important; }\n.chat-msg-row.right .msg-bubble { background-color: #2ba245 !important; border-color: #2ba245 !important; color: #fff !important; }\n.msg-quote-card { background-color: rgba(255, 255, 255, 0.08) !important; color: #aaa !important; }\n.chat-msg-row.right .msg-quote-card { background-color: rgba(0, 0, 0, 0.2) !important; color: #ddd !important; }\n\n/* 弹窗与菜单 */\n.upload-modal-content, .center-modal-content, .chat-menu-dropdown, .function-panel-content, .emoticon-picker-content { background-color: #252525 !important; color: #e0e0e0 !important; border-color: #333 !important; }\n.chat-menu-item { color: #e0e0e0; border-bottom-color: #333 !important; }\n.chat-menu-item:hover { background-color: #333 !important; }\n\n/* 修复图片气泡透明 */\n.chat-msg-row.left .msg-bubble.image-bubble, .chat-msg-row.right .msg-bubble.image-bubble, .chat-msg-row.left .msg-bubble.is-image, .chat-msg-row.right .msg-bubble.is-image { background-color: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }\n.msg-image-content { background-color: transparent !important; }\n\n/* ==================================== */\n/* ★ 订单卡片 / 转账卡片下半截强制变黑 */\n/* ==================================== */\n.payment-footer { background-color: #222222 !important; color: #aaaaaa !important; border-top: 1px solid #333 !important; }\n.msg-bubble.is-order-card > div { background-color: #222222 !important; border: 1px solid #444 !important; }\n.msg-bubble.is-order-card > div > div:first-child { border-bottom-color: #444 !important; }\n.msg-bubble.is-order-card > div > div:last-child { background-color: #111111 !important; color: #ff4d4f !important; }\n\n/* ==================================== */\n/* ★ 外卖悬浮窗彻底变黑 */\n/* ==================================== */\n.delivery-card { background-color: rgba(30, 30, 30, 0.95) !important; border: 1px solid #444 !important; }\n.delivery-card .delivery-title { color: #ffffff !important; }\n\n/* ==================================== */\n/* ★ 购物商城页面适配 */\n/* ==================================== */\n.shop-card { background-color: #222222 !important; border: 1px solid #444 !important; }\n.shop-card-img { background-color: #111111 !important; color: #999999 !important; }\n.shop-card-comments { background-color: #1a1a1a !important; color: #ccc !important; }\n\n/* ==================================== */\n/* 1. 朋友圈 (Moments) */\n/* ==================================== */\n.moment-post { background-color: #111 !important; border-bottom: 1px solid #2a2a2a !important; }\n.post-content { color: #e0e0e0 !important; }\n.moment-interactions { background-color: #1e1e1e !important; } /* 稍微提亮一点背景区分层次 */\n.moment-interactions::before { border-bottom-color: #1e1e1e !important; }\n.moment-likes { border-bottom: 1px solid #333 !important; color: #8299c2 !important; } /* 线条改成深灰，不再刺眼 */\n.moment-comment-content { color: #ffffff !important; } \n.moment-comment-item { color: #cccccc !important; } \n.post-action-btn { background-color: #2c2c2c !important; color: #999 !important; border: 1px solid #444 !important; } \n#moments-comment-modal .upload-modal-content { background-color: #191919 !important; }\n#moments-comment-modal select, #moments-like-modal select { background-color: #2c2c2c !important; color: #e0e0e0 !important; border-color: #444 !important; }\n\n/* ==================================== */\n/* 4. 论坛 (Forum) */\n/* ==================================== */\n.forum-tabs-wrapper { background-color: #191919 !important; border-color: #2a2a2a !important; }\n.forum-tab { color: #888 !important; }\n.forum-tab.active { color: #07c160 !important; }\n.forum-board-action-bar { background-color: #191919 !important; border-color: #2a2a2a !important; }\n.forum-reply-header { background-color: #111 !important; color: #999 !important; border-color: #2a2a2a !important; }\n.forum-input-bar { background-color: #191919 !important; border-top: 1px solid #2a2a2a !important; }\n.fpc-content-preview, .fd-content { color: #aaa !important; }\n.fri-content { color: #e0e0e0 !important; }\n\n/* ==================================== */\n/* 5. 手账日记 & 人生档案 & Ta的一天 */\n/* ==================================== */\n#diary-detail-page .page-content, #their-day-detail-page .page-content { background-color: transparent !important; } /* 交给伪元素处理 */\n.diary-wrapper { background-color: #191919 !important; }\n.diary-header { color: #e0e0e0 !important; }\n.diary-box { background-color: #2c2c2c !important; border-color: #333 !important; }\n.diary-box-title { color: #888 !important; }\n.diary-box-content { color: #e0e0e0 !important; }\n.timeline-time { background-color: #2c2c2c !important; color: #e0e0e0 !important; border-color: #444 !important; }\n.timeline-content { background-color: #2c2c2c !important; border-color: #333 !important; color: #ccc !important; }\n.diary-dots-line { opacity: 0.3; }\n\n/* Ta的一天 页面暗黑适配 */\n#their-day-detail-page .page-content > div[style*=\"background: #fff\"],\n#their-day-schedule-container { \n    background-color: #191919 !important; \n    border: 1px solid #2a2a2a !important; \n    color: #e0e0e0 !important; \n    box-shadow: none !important;\n}\n#their-day-detail-page .page-content > div[style*=\"background: #fff\"] > div:first-child > div:first-child {\n    color: #e0e0e0 !important;\n}\n\n/* ★ 人生档案修复：容器背景与字体 */\n.life-event-item { background-color: #222222 !important; border: 1px solid #444 !important; }\n.life-event-item .date { background-color: #111111 !important; color: #aaaaaa !important; }\n.life-event-item textarea { color: #ffffff !important; background-color: transparent !important; }\n.life-event-item textarea:focus { background-color: #333333 !important; }\n\n/* ==================================== */\n/* 6. 经期记录 (Period Tracking) */\n/* ==================================== */\n#period-tracking-page .page-content { background-color: transparent !important; }\n#period-tracking-page .page-content > div[style*=\"background: #fff\"], \n#period-tracking-page .page-content > div[style*=\"background:#fff\"] { \n    background-color: #191919 !important; \n    box-shadow: none !important; \n    border: 1px solid #2a2a2a !important; \n    color: #e0e0e0 !important; \n}\n#period-tracking-page .page-content > div[style*=\"background: linear-gradient\"] { background: linear-gradient(135deg, #592430 0%, #4a273b 100%) !important; box-shadow: none !important; border: 1px solid #333; }\n#period-status-display { color: #fff !important; text-shadow: none !important; }\n#period-calendar-grid > div { color: #e0e0e0 !important; background: #2c2c2c !important; }\n#period-calendar-grid > div[style*=\"background: #fff\"] { background: #2c2c2c !important; color: #ccc !important; }\n#period-calendar-grid > div[style*=\"background: #f6ffed\"] { background: #1a3320 !important; color: #6fc87e !important; }\n#period-calendar-grid > div[style*=\"background: #f3e8ff\"] { background: #281a3d !important; color: #b185e5 !important; }\n#period-calendar-grid > div[style*=\"background: #ffccc7\"] { background: #3d1a1b !important; color: #ff6b81 !important; }\n#period-calendar-grid > div[style*=\"background: #ff4d4f\"] { background: #a1232b !important; color: #fff !important; }\n\n/* ==================================== */\n/* 7. 查手机 (Check Phone) */\n/* ==================================== */\n.reaction-area { background-color: #191919 !important; border-color: #333 !important; }\n.reaction-bubble { background-color: #2c2c2c !important; color: #e0e0e0 !important; }\n.reaction-bubble::before { border-color: transparent #2c2c2c transparent transparent !important; }\n.screen-app { background-color: #111 !important; }\n.app-header { background-color: #191919 !important; color: #e0e0e0 !important; border-color: #333 !important; }\n.app-back, .app-title { color: #e0e0e0 !important; }\n.sim-sms-item, .sim-wechat-item { background-color: #191919 !important; }\n#wechat-chat-view { background-color: #111 !important; }\n#wechat-chat-view > div[style*=\"background:#fff\"] { background-color: #191919 !important; border-color: #333 !important; }\n.sim-chat-bubble-row.left .sim-chat-bubble { background-color: #2c2c2c !important; color: #e0e0e0 !important; border-color: #444 !important; }\n.sim-chat-bubble-row.right .sim-chat-bubble { background-color: #2ba245 !important; color: #fff !important; border-color: #2ba245 !important; }\n#cp-app-content > div[style*=\"background:#fff\"], #rcp-app-content > div[style*=\"background:#fff\"] { background-color: #191919 !important; }\n.rcp-br-item, .rcp-call-item, .rcp-wallet-item { border-bottom-color: #333 !important; }\n.rcp-br-item div[style*=\"background:#f9f9f9\"], .rcp-call-item div[style*=\"background:#f9f9f9\"] { background-color: #2c2c2c !important; }\n.sim-tiktok-item { background-color: #191919 !important; border: 1px solid #333 !important; }\n\n/* ==================================== */\n/* 8. 收藏 (Favorites) & 表情包 (Emoticons) */\n/* ==================================== */\n.fav-content { background-color: #2c2c2c !important; color: #ccc !important; }\n.fav-content.is-voice { background-color: #2c2c2c !important; border-color: #444 !important; color:#fff !important;}\n\n.emoticon-tabs, .emoticon-picker-tabs { background-color: #191919 !important; border-color: #333 !important; }\n.emoticon-tab-item { color: #888 !important; }\n.emoticon-tab-item.active { color: #07c160 !important; }\n.emoticon-desc { color: #ccc !important; background-color: #191919 !important; border-top-color: #333 !important; }\n.emoticon-img-box { background-color: transparent !important; }\n.emoticon-picker-card { background-color: #2c2c2c !important; border-color: #444 !important; }\n.emoticon-picker-desc { color: #aaa !important; }\n\n/* ==================================== */\n/* 10. 杂项补全与钱包修复 */\n/* ==================================== */\n.func-icon { background-color: #2c2c2c !important; color: #aaa !important; border-color: #444 !important; }\n.func-icon i { color: #aaa !important; }\n.func-text { color: #888 !important; }\n.search-bar-container input { background-color: #2c2c2c !important; color: #fff !important; }\n\n/* ★ 钱包与账单明细文字强制清晰化 */\n.transaction-section { background-color: transparent !important; } /* 让伪元素接管 */\n.transaction-title { border-bottom-color: #333 !important; color: #ffffff !important; }\n.transaction-item { border-color: #333 !important; }\n.trans-desc, .trans-left { color: #e0e0e0 !important; }\n/* 重点：原本是黑色的支出数字，强行提亮为白色 */\n.trans-right.negative { color: #ffffff !important; }\n.trans-time { color: #aaaaaa !important; }\n#wallet-page .page-content { background-color: transparent !important; }\n\n/* 针对原版 CSS 中没覆盖到的白底元素统一补全 */\n.top-bar, .bottom-nav, .chat-input-bar, .forum-input-bar, .batch-action-bar, .forum-tabs-wrapper, .forum-tabs-actions {\n    background-color: #151515 !important;\n    border-color: #222 !important;\n}\n\n/* 底部防遮挡 */\n#chat-list-page .page-content, #contact-page .page-content, #discover-page .page-content, #me-page .page-content { padding-bottom: 80px !important; box-sizing: border-box !important; }\n\n/* ==================================== */\n/* 11. 心声面板专属暗黑护眼适配 */\n/* ==================================== */\n#inner-status-modal { \n    background-color: #1e1e1e !important; \n    border-color: #333 !important; \n    box-shadow: 0 8px 30px rgba(0,0,0,0.8) !important; \n}\n.status-label { color: #999 !important; }\n.status-value { color: #e0e0e0 !important; }\n.os-item { \n    background-color: #2d2614 !important;  \n    border-left-color: #cda028 !important; \n}\n.os-item .status-label { color: #8a7b53 !important; } \n.os-item .status-value { color: #e0c888 !important; } \n.jealousy-bar-container { background-color: #333 !important; }\n",
+        "bubbleCss": "",
+        "zoom": 100,
+        "fontUrl": ""
+      }
+    }
+  ],
+  "weatherSettings": {
+    "apiHost": "",
+    "apiKey": "",
+    "province": "",
+    "city": "",
+    "syncCharIds": [],
+    "lastFetchDate": "",
+    "cachedData": null
+  },
+  "activeMsgSettings": {
+    "quietStart": "23:00",
+    "quietEnd": "08:00",
+    "enabledCharIds": [],
+    "charConfigs": {}
+  }
+}
